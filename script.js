@@ -1,11 +1,15 @@
 (function($){ 
     var figures = workflow.getFigures();
     var prop = new Map();
+    var counter = 0;
     figures.data.forEach(function(figure) {
         if (figure != null && figure != undefined) {
             for(var item in (figure) )
             {
+                alert(item);
                 prop.set(item, 1);
+                if (counter++ == 20)
+                    return;
             }
         }
     });
