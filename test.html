@@ -13,14 +13,19 @@
             border-left: 1px solid #ccc;
             padding: 10px;
         }
+        .wc-selected{
+            border:1px solid #66ccff !important ;
+        }
     </style>
     <div class='mti'>
-        <p>name</p>
-        <p id='wc-name'></p>
-        <p>pkgCpt</p>
-        <p id='wc-pkg'></p>
+        <p>X: <input class='wc-ofx' type='number' value='0' /></p>
+        <p>Y: <input class='wc-ofy' type='number' value='0' /></p>
+        <p>x: <input class='wc-cpx' type='number' value='0' /></p>
+        <p>y: <input class='wc-cpy' type='number' value='0' /></p>
+        <input type="button" value="Apply" />
+        <input type="button" value="Delete" />
         <p>Output</p>
-        <p id='wc-output'></p>
+        <textarea id='wc-output'></textarea>
     </div>
 </div>
 </body>
