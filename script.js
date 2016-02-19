@@ -4,7 +4,7 @@ var cursel;
 (function($){ 
 
     function log(str) {
-        $('#wc-output').val($('#wc-output').val() + '\n' + str);
+        $('#wc-output').val(str + '\n' + $('#wc-output').val());
     }
     
     $('body').append('<div>' + ' <style> .mti { position: fixed; height: 80%; width: 20%; background-color: white; top: 20px; right: 0px; border-left: 1px solid #ccc; padding: 10px; } .wc-selected{ border:1px solid #66ccff !important ; } </style> <div class="mti"> <p>ofx x: <input class="wc-ofx" type="number" value="0"></p> <p>stp x: <input class="wc-spx" type="number" value="1"></p> <p>xct x: <input class="wc-cpx" type="number" value="0"></p> <p>ofx y: <input class="wc-ofy" type="number" value="10"></p> <p>stp y: <input class="wc-spy" type="number" value="1"></p> <p>xtr y: <input class="wc-cpy" type="number" value="0"></p> <input id="btnApply" type="button" value="Apply"> <input id="btnDelete" type="button" value="Delete"> <p>Output</p> <textarea id="wc-output" style="width:100%; height:200px"></textarea> </div> ' + '</div>');
@@ -51,6 +51,7 @@ var cursel;
     
     $('#mainContents').click(function (event) {
         cursel = workflow.getCurrentSelection();
+        log(cursel.name);
         if (cursel == null) {
             sellist = [];
             return;
@@ -68,7 +69,6 @@ var cursel;
         } else {
             sellist = [cursel];
         }
-        log(cursel.name);
     });
     
 })(jQuery);
