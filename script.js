@@ -1,26 +1,26 @@
-var getSelectedList;
 var sellist = [];
 var cursel;
 
 (function($){ 
 
     function log(str) {
-        $('.wc-output').val($('.wc-output').val() + '\n' + str);
+        $('#wc-output').val($('#wc-output').val() + '\n' + str);
     }
     
     $('body').append('<div>' + ' <style> .mti { position: fixed; height: 80%; width: 20%; background-color: white; top: 20px; right: 0px; border-left: 1px solid #ccc; padding: 10px; } .wc-selected{ border:1px solid #66ccff !important ; } </style> <div class="mti"> <p>ofx x: <input class="wc-ofx" type="number" value="0"></p> <p>stp x: <input class="wc-spx" type="number" value="1"></p> <p>xct x: <input class="wc-cpx" type="number" value="0"></p> <p>ofx y: <input class="wc-ofy" type="number" value="10"></p> <p>stp y: <input class="wc-spy" type="number" value="1"></p> <p>xtr y: <input class="wc-cpy" type="number" value="0"></p> <input id="btnApply" type="button" value="Apply"> <input id="btnDelete" type="button" value="Delete"> <p>Output</p> <textarea id="wc-output" style="width:100%; height:200px"></textarea> </div> ' + '</div>');
     
     $('#btnApply').click(function () {
-        if (cursel.name.indexOf('(改ページ用)') == -1) {
-            alert('no siblings');
+        var cur = workflow.getCurrentSelection(); 
+        if (cur == null || cur.name.indexOf('(改ページ用)') == -1) {
+            log('no siblings');
             return;
         }
-        var ci, ml = [], pn = cursel.name.substring(0, cursel.name.lastIndexOf('_'));
+        var ci, ml = [], pn = cur.name.substring(0, cur.name.lastIndexOf('_'));
         workflow.getFigures().data.forEach(function (fg) {
             if (fg == undefined || fg.name == undefined) return;
             if (fg.name.indexOf(pn) == -1) return;
             var idx = parseInt(fg.name.substring(fg.name.lastIndexOf('_') + 1));
-            if (fg.id == cursel.id) ci = idx;
+            if (fg.id == cur.id) ci = idx;
             ml[idx] = fg;
         });
         var ofx = $('.wc-ofx').val(), ofy = $('.wc-ofy').val(), 
@@ -33,14 +33,15 @@ var cursel;
     });
     
     $('#btnDelete').click(function () {
-        if (cursel.name.indexOf('(改ページ用)') == -1) {
-            alert('no siblings');
+        var cur = workflow.getCurrentSelection(); 
+        if (cur == null || cur.name.indexOf('(改ページ用)') == -1) {
+            log('no siblings');
             return;
         }
         var dl = [];
         workflow.getFigures().data.forEach(function (fg) {
             if (fg == undefined || fg.name == undefined) return;
-            if (fg.name.indexOf(cursel.name.substring(0, cursel.name.lastIndexOf('_'))) == -1) return;
+            if (fg.name.indexOf(cur.name.substring(0, cur.name.lastIndexOf('_'))) == -1) return;
             dl.push(fg);
         });
         dl.forEach(function (fg) {
@@ -67,6 +68,7 @@ var cursel;
         } else {
             sellist = [cursel];
         }
+        log(cursel.name);
     });
     
 })(jQuery);
