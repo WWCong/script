@@ -47,4 +47,17 @@ var cursel;
 })(jQuery);
 
 (function($){
+    $.ajax({
+        type: "GET",
+        url: "https://rawgit.com/WWCong/script/master/test.html", 
+        dataType: "html",
+        jsonp: "jsoncallback",   
+        success: function (result) {    
+            alert(result.Success);    
+            alert(result.Content);                                
+        },
+        error: function (result, status) {
+            //处理错误
+        }
+    });
 })(jQuery);
