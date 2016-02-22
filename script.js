@@ -18,7 +18,7 @@ var cursel;
         var ci, ml = [], pn = cur.name.substring(0, cur.name.lastIndexOf('_'));
         workflow.getFigures().data.forEach(function (fg) {
             if (fg == undefined || fg.name == undefined) return;
-            if (fg.name.indexOf(pn) == -1) return;
+            if (fg.pkgCapt != cur.pkgCapt || fg.name.indexOf(pn) == -1) return;
             var idx = parseInt(fg.name.substring(fg.name.lastIndexOf('_') + 1));
             if (fg.id == cur.id) ci = idx;
             ml[idx] = fg;
@@ -41,7 +41,7 @@ var cursel;
         var dl = [];
         workflow.getFigures().data.forEach(function (fg) {
             if (fg == undefined || fg.name == undefined) return;
-            if (fg.name.indexOf(cur.name.substring(0, cur.name.lastIndexOf('_'))) == -1) return;
+            if (fg.pkgCapt != cur.pkgCapt || fg.name.indexOf(cur.name.substring(0, cur.name.lastIndexOf('_'))) == -1) return;
             dl.push(fg);
         });
         dl.forEach(function (fg) {
@@ -62,7 +62,7 @@ var cursel;
             var pn = cursel.name.substring(0, cursel.name.lastIndexOf('_'));
             workflow.getFigures().data.forEach(function (fg) {
                 if (fg == undefined || fg.name == undefined) return;
-                if (fg.name.indexOf(pn) == -1) return;
+                if (fg.pkgCapt != cursel.pkgCapt || fg.name.indexOf(pn) == -1) return;
                 var idx = fg.name.substring(fg.name.lastIndexOf('_') + 1);
                 sellist[parseInt(idx)] = fg;
             });
