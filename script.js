@@ -48,7 +48,7 @@ toolkit.sibDelete = function () {
     });
 };
 
-toolkit.ctrlQ = function () {
+toolkit.ctrlKey = function () {
     var $ = jQuery;
     $('.wc-selected').removeClass('wc-selected');
     toolkit.getSiblings().forEach(function (fg) {
@@ -56,11 +56,12 @@ toolkit.ctrlQ = function () {
     });
 };
 
+toolkit.hotkey = 113;
 toolkit.init = function ($) {
     $('body').append(toolkit.ui);
     $('#btnApply').click(toolkit.sibAlign);
     $('#btnDelete').click(toolkit.sibDelete);
-    $('body').keypress(function(e) {if (e.ctrlKey && e.which == 113) toolkit.ctrlQ();});
+    $('body').keypress(function(e) {if (e.ctrlKey && e.which == toolkit.hotkey) toolkit.ctrlKey();});
 };
 
 toolkit.init(jQuery);
