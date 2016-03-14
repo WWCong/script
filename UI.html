@@ -1,0 +1,46 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/plain; charset=gb2312" />
+</head>
+<body style="background-color:white;">
+    
+<div class="wc-load">
+    <style>
+        .mti {
+            position: fixed;
+            height: 80%;
+            width: 20%;
+            background-color: white;
+            top: 20px;
+            right: 0px;
+            border-left: 1px solid #ccc;
+            padding: 10px;
+        }
+        .wc-selected{
+            border:1px solid #66ccff !important ;
+        }
+    </style>
+    <div class="mti">
+        <p>ofx x: <input class="wc-ofx" type="number" value="0" /></p>
+        <p>stp x: <input class="wc-spx" type="number" value="1" /></p>
+        <p>xct x: <input class="wc-cpx" type="number" value="0" /></p>
+        <p>ofx y: <input class="wc-ofy" type="number" value="10" /></p>
+        <p>stp y: <input class="wc-spy" type="number" value="1" /></p>
+        <p>xtr y: <input class="wc-cpy" type="number" value="0" /></p>
+        <input id="btnApply" type="button" value="Apply" />
+        <input id="btnDelete" type="button" value="Delete" />
+        <p>Output</p>
+        <textarea id="wc-output" style="width:100%; height:200px"></textarea>
+        <br>
+        <input id="clipbuffer" type="text" />
+        <textarea id="clipboard"></textarea>
+    </div>
+</div>
+
+    <textarea type="text" id="zip"></textarea>
+    <script>
+        var out = document.getElementsByClassName("wc-load")[0].innerHTML;
+        out = out.replace(/\n\s{2,}/g, '\n');
+        out = out.replace(/[\r|\n]/g, ' ');
+        document.getElementById('zip').value = out;
+    </script>
+</body>
