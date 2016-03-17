@@ -1,11 +1,12 @@
 <head>
-    <meta http-equiv="Content-Type" content="text/plain; charset=gb2312" />
+    <meta http-equiv="Content-Type" content="text/plain; charset=unicode" />
+    <script src="./jquery-2.2.1.js"></script>
 </head>
 <body style="background-color:white;">
     
 <div class="wc-load">
     <style>
-        .mti {
+        .right-side-toolbar {
             position: fixed;
             height: 80%;
             width: 20%;
@@ -18,21 +19,78 @@
         .wc-selected{
             border:1px solid #66ccff !important ;
         }
+        .title {
+            width: 100px;
+        }
     </style>
-    <div class="mti">
-        <p>ofx x: <input class="wc-ofx" type="number" value="0" /></p>
-        <p>stp x: <input class="wc-spx" type="number" value="1" /></p>
-        <p>xct x: <input class="wc-cpx" type="number" value="0" /></p>
-        <p>ofx y: <input class="wc-ofy" type="number" value="10" /></p>
-        <p>stp y: <input class="wc-spy" type="number" value="1" /></p>
-        <p>xtr y: <input class="wc-cpy" type="number" value="0" /></p>
-        <input id="btnApply" type="button" value="Apply" />
-        <input id="btnDelete" type="button" value="Delete" />
-        <p>Output</p>
-        <textarea id="wc-output" style="width:100%; height:200px"></textarea>
-        <br>
-        <input id="clipbuffer" type="text" />
-        <textarea id="clipboard"></textarea>
+    <script>
+        (function ($) { 
+            $(document).ready(function() {
+                $(".tab-select").change(function () {
+                    $(this).siblings(".tab-container").hide();
+                    $(this).siblings("." + $(".tab-select").val()).show();
+                });
+                $(".tab-select").change();
+            });
+        })(jQuery);
+    </script>
+    <div class="right-side-toolbar">
+        <select class="tab-select">
+            <option value="mask">Mask</option>
+            <option value="sib">Siblings</option>
+        </select>
+        <div class="tab-container sib">
+            <p>ofx x: <input class="wc-ofx" type="number" value="0" /></p>
+            <p>stp x: <input class="wc-spx" type="number" value="1" /></p>
+            <p>xct x: <input class="wc-cpx" type="number" value="0" /></p>
+            <p>ofx y: <input class="wc-ofy" type="number" value="10" /></p>
+            <p>stp y: <input class="wc-spy" type="number" value="1" /></p>
+            <p>xtr y: <input class="wc-cpy" type="number" value="0" /></p>
+            <input id="btnApply" type="button" value="Apply" />
+            <input id="btnDelete" type="button" value="Delete" />
+            <p>Output</p>
+            <textarea id="wc-output" style="width:100%; height:200px"></textarea>
+            <br>
+            <input id="clipbuffer" type="text" />
+            <textarea id="clipboard"></textarea>
+        </div>
+        <div class="tab-container mask">
+            <hr>
+            <button class="toggleMask">On</button>
+            <hr>
+            <p>
+                <button class="delta up"> ↑ </button>
+                <input class="delta-value up" type="number" value="1" />
+            </p>
+            <p>
+                <button class="delta down"> ↓ </button>
+                <input class="delta-value down" type="number" value="1" />
+            </p>
+            <p>
+                <button class="delta left">←</button>
+                <input class="delta-value left" type="number" value="1" />
+            </p>
+            <p>
+                <button class="delta right">→</button>
+                <input class="delta-value right" type="number" value="1" />
+            </p>
+            <hr/>
+            <select class="align">
+                <option value="vtl">↕vertical</option>
+                <option value="htl">↔Horizontal</option>
+            </select>
+            <p>ofs: <input class="ofs" type="number" value="10" /></p>
+            <p>stp: <input class="stp" type="number" value="1" /></p>
+            <p>cpv: <input class="cpv" type="number" value="0" /></p>
+            <button class="btnOffset">Apply</button>
+            <button class="btnDelete">Delete</button>
+            <hr/>
+            <p><span class="title">Left:</span><input class="uniLeft" type="number" value="" /></p>
+            <p><span class="title">Top:</span><input class="uniTop" type="number" value="" /></p>
+            <p><span class="title">Width:</span><input class="uniWidth" type="number" value="" /></p>
+            <p><span class="title">Height:</span><input class="uniHeight" type="number" value="" /></p>
+            <p><span class="title">FontSize:</span><input class="fontSize" type="number" value="" /></p>
+        </div>
     </div>
 </div>
 

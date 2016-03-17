@@ -28,10 +28,10 @@ var EventUtil = {
     },  
     getClipboardText: function (event) {  
         var clipboardData = (event.clipboardData || window.clipboardData); 
-        /*var types = clipboardData.types || [];
-        for(var i = 0; i < types.length; i++ ){
-            alert(types[i]);
-        }*/
+        var types = clipboardData.types || [];
+        // for(var i = 0; i < types.length; i++ ){
+        //     alert(types[i]);
+        // }
         return clipboardData.getData("text/html");  
     },  
     setClipboardText: function (event, value) {  
