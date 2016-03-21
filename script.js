@@ -4,7 +4,7 @@ function log(str) {
     
 var toolkit = new Object();
 
-toolkit.ui = ' <style> .right-side-toolbar { position: fixed; height: 80%; width: 20%; background-color: white; top: 20px; right: 0px; border-left: 1px solid #ccc; padding: 10px; } .wc-selected{ border:1px solid #66ccff !important ; } .title { width: 100px; } </style> <script> (function ($) {  $(document).ready(function() { $(".tab-select").change(function () { $(this).siblings(".tab-container").hide(); $(this).siblings("." + $(".tab-select").val()).show(); }); $(".tab-select").change(); }); })(jQuery); </script> <div class="right-side-toolbar"> <select class="tab-select"> <option value="mask">Mask</option> <option value="sib">Siblings</option> </select> <div class="tab-container sib"> <p>ofx x: <input class="wc-ofx" type="number" value="0"></p> <p>stp x: <input class="wc-spx" type="number" value="1"></p> <p>xct x: <input class="wc-cpx" type="number" value="0"></p> <p>ofx y: <input class="wc-ofy" type="number" value="10"></p> <p>stp y: <input class="wc-spy" type="number" value="1"></p> <p>xtr y: <input class="wc-cpy" type="number" value="0"></p> <input id="btnApply" type="button" value="Apply"> <input id="btnDelete" type="button" value="Delete"> <p>Output</p> <textarea id="wc-output" style="width:100%; height:200px"></textarea> <br> <input id="clipbuffer" type="text"> <textarea id="clipboard"></textarea> </div> <div class="tab-container mask"> <hr> <button class="toggleMask">On</button> <hr> <p> <button class="delta up"> ↑ </button> <input class="delta-value up" type="number" value="1"> </p> <p> <button class="delta down"> ↓ </button> <input class="delta-value down" type="number" value="1"> </p> <p> <button class="delta left">←</button> <input class="delta-value left" type="number" value="1"> </p> <p> <button class="delta right">→</button> <input class="delta-value right" type="number" value="1"> </p> <hr> <select class="align"> <option value="vtl">↕vertical</option> <option value="htl">↔Horizontal</option> </select> <p>ofs: <input class="ofs" type="number" value="10"></p> <p>stp: <input class="stp" type="number" value="1"></p> <p>cpv: <input class="cpv" type="number" value="0"></p> <button class="btnOffset">Apply</button> <button class="btnDelete">Delete</button> <hr> <p><span class="title">Left:</span><input class="uniLeft" type="number" value=""></p> <p><span class="title">Top:</span><input class="uniTop" type="number" value=""></p> <p><span class="title">Width:</span><input class="uniWidth" type="number" value=""></p> <p><span class="title">Height:</span><input class="uniHeight" type="number" value=""></p> <p><span class="title">FontSize:</span><input class="fontSize" type="number" value=""></p> </div> </div> ';
+toolkit.ui = ' <style> .right-side-toolbar { position: fixed; height: 80%; width: 20%; background-color: white; top: 20px; right: 0px; border-left: 1px solid #ccc; padding: 10px; } .wc-selected{ border:1px solid #66ccff !important ; } .title { width: 100px; } .test input { border: 1px solid #ccc; border-top: none; } .test p { border-top: 1px solid #ccc; border-left: 1px solid #ccc; margin-bottom: 0px; padding-left: 4px; } </style> <script> (function ($) {  $(document).ready(function() { $(".tab-select").change(function () { $(this).siblings(".tab-container").hide(); $(this).siblings("." + $(".tab-select").val()).show(); }); $(".tab-select").change(); }); })(jQuery); </script> <div class="right-side-toolbar"> <select class="tab-select"> <option value="mask">Mask</option> <option value="sib">Siblings</option> </select> <div class="tab-container sib"> <p>ofx x: <input class="wc-ofx" type="number" value="0"></p> <p>stp x: <input class="wc-spx" type="number" value="1"></p> <p>xct x: <input class="wc-cpx" type="number" value="0"></p> <p>ofx y: <input class="wc-ofy" type="number" value="10"></p> <p>stp y: <input class="wc-spy" type="number" value="1"></p> <p>xtr y: <input class="wc-cpy" type="number" value="0"></p> <input id="btnApply" type="button" value="Apply"> <input id="btnDelete" type="button" value="Delete"> <p>Output</p> <textarea id="wc-output" style="width:100%; height:200px"></textarea> <br> <input id="clipbuffer" type="text"> <textarea id="clipboard"></textarea> </div> <div class="tab-container mask"> <hr> <button class="toggleMask">On</button> <hr> <p> <button class="delta up"> ↑ </button> <input class="delta-value up" type="number" value="1"> </p> <p> <button class="delta down"> ↓ </button> <input class="delta-value down" type="number" value="1"> </p> <p> <button class="delta left">←</button> <input class="delta-value left" type="number" value="1"> </p> <p> <button class="delta right">→</button> <input class="delta-value right" type="number" value="1"> </p> <hr> <select class="align"> <option value="vtl">↕vertical</option> <option value="htl">↔Horizontal</option> </select> <p>ofs: <input class="ofs" type="number" value="10"></p> <p>stp: <input class="stp" type="number" value="1"></p> <p>cpv: <input class="cpv" type="number" value="0"></p> <button class="btnOffset">Apply</button> <button class="btnDelete">Delete</button> <hr> <p><span class="title">Left:</span><input class="uniLeft" type="number" value=""></p> <p><span class="title">Top:</span><input class="uniTop" type="number" value=""></p> <p><span class="title">Width:</span><input class="uniWidth" type="number" value=""></p> <p><span class="title">Height:</span><input class="uniHeight" type="number" value=""></p> <p><span class="title">FontSize:</span><input class="uniFontSize" type="number" value=""></p> <p><span class="title">TextAlign:</span> <select class="uniTextAlign"> <option value=""></option> <option value="left">Left</option> <option value="center">Center</option> <option value="right">Right</option> </select></p> <p><span class="title">Text:</span><input class="uniText" type="text" value=""></p> </div> </div> ';
 toolkit.ui = '<div>' + toolkit.ui + '</div>';
 
 toolkit.getSiblings = function (obj) {
@@ -186,7 +186,8 @@ mask.init = function () {
     mask.EventBinding();
     $mask.hide();
     $(".toggleMask").click(mask.toggle);
-    $(".delta").click(mask.deltaClick);
+    $(".delta").mousedown(mask.deltaBtnDown);
+    $(".delta").mouseup(mask.deltaBtnUp);
     $(".btnOffset").click(mask.align);
     $(".btnDelete").click(mask.deleteSeleted);
     $("#ExitTool").click(function () {
@@ -343,28 +344,35 @@ mask.toggle = function () {
         mask.jqobj.hide();
         mask.removeSelected();
     }
-}
+};
 
-mask.deltaClick = function () {
-    var $ = jQuery;
-    if ($(this).hasClass("up")) {
+mask.deltaBtnDown = function (e) {
+    var $ = jQuery, btn = mask.isMousePress || this;
+    if ($(btn).hasClass("up")) {
         mask.selectedForEach (function (fg) {
             fg.setY(fg.getY() - $(".delta-value.up").val());
         });
-    } else if ($(this).hasClass("down")) {
+    } else if ($(btn).hasClass("down")) {
         mask.selectedForEach (function (fg) {
             fg.setY(fg.getY() + parseInt($(".delta-value.down").val()));
         });
-    } else if ($(this).hasClass("left")) {
+    } else if ($(btn).hasClass("left")) {
         mask.selectedForEach (function (fg) {
             fg.setX(fg.getX() - $(".delta-value.left").val());
         });
-    } else if ($(this).hasClass("right")) {
+    } else if ($(btn).hasClass("right")) {
         mask.selectedForEach (function (fg) {
             fg.setX(fg.getX() + parseInt($(".delta-value.right").val()));
         });
-    }
-}
+    };
+    if (e) mask.isMousePress = this;
+    if (mask.isMousePress)
+        setTimeout(mask.deltaBtnDown, e ? 300 : 100);
+};
+
+mask.deltaBtnUp = function () {
+    mask.isMousePress = undefined;
+};
 
 mask.align = function () {
     var $ = jQuery, isVertical = $(".align").val() == "vtl";
@@ -406,9 +414,19 @@ mask.attrInit = function() {
             fg.setHeight(parseInt($(".uniHeight").val()));
         });
     });
-    $(".fontSize").change(function () {
+    $(".uniFontSize").change(function () {
         mask.selectedForEach (function (fg) {
-            fg.setFontSize(parseInt($(".fontSize").val()));
+            fg.setFontSize(parseInt($(".uniFontSize").val()));
+        });
+    });
+    $(".uniTextAlign").change(function () {
+        mask.selectedForEach (function (fg) {
+            fg.setTextAlignment($(".uniTextAlign").val());
+        });
+    });
+    $(".uniText").change(function () {
+        mask.selectedForEach (function (fg) {
+            fg.setText($(".uniText").val());
         });
     });
 }
@@ -421,14 +439,20 @@ mask.attrUpdate = function () {
         $(".uniTop").val("");
         $(".uniWidth").val("");
         $(".uniHeight").val("");
-        $(".fontSize").val("");
+        $(".uniFontSize").val("");
+        $(".uniTextAlign").val("");
+        $(".uniText").val("");
         return;
     };
-    var fontSize = list[0].getFontSize();
+    var fontSize = list[0].getFontSize ? list[0].getFontSize() : undefined;
+    var textAlign = list[0].getTextAlignment ? list[0].getTextAlignment() : undefined;
+    var text = list[0].getText ? list[0].getText() : undefined;
     var x = list[0].getX(), y = list[0].getY();
     var width = list[0].getWidth(), height = list[0].getHeight();
     for (var i = 1; i < list.length; i++) {
-        if (fontSize != list[i].getFontSize()) fontSize = "";
+        if (fontSize && fontSize != list[i].getFontSize()) fontSize = "";
+        if (textAlign && textAlign != list[i].getTextAlignment()) textAlign = "";
+        if (text && text != list[i].getText()) text = "";
         if (x != list[i].getX()) x = "";
         if (y != list[i].getY()) y = "";
         if (width != list[i].getWidth()) width = "";
@@ -438,7 +462,9 @@ mask.attrUpdate = function () {
     $(".uniTop").val(y);
     $(".uniWidth").val(width);
     $(".uniHeight").val(height);
-    $(".fontSize").val(fontSize);
+    $(".uniFontSize").val(fontSize ? fontSize : "");
+    $(".uniTextAlign").val(textAlign ? textAlign : "");
+    $(".uniText").val(text ? text : "");
 }
 
 mask.init();
